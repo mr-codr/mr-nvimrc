@@ -27,5 +27,4 @@ vim.opt.termguicolors = true
 vim.opt.foldlevel = 1
 -- override specific filetype options
 -- markdown
-vim.g.markdown_recommended_style = 0
 vim.g.markdown_folding = 1

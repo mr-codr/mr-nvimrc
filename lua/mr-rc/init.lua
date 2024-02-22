@@ -1,11 +1,18 @@
-require "mr-rc.lsp"
-require "mr-rc.autopairs"
-require "mr-rc.colorscheme"
-require "mr-rc.comments"
-require "mr-rc.completion"
-require "mr-rc.gitsigns"
 require "mr-rc.keymaps"
 require "mr-rc.options"
-require "mr-rc.plugins"
-require "mr-rc.telescope"
-require "mr-rc.treesitter"
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup('mr-rc.plugins', { defaults = { lazy = true }})
+require "mr-rc.lsp"
