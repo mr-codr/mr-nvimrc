@@ -14,5 +14,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup('mr-rc.plugins', { defaults = { lazy = true }})
-require "mr-rc.lsp"
+require("lazy").setup({{ import = 'mr-rc.plugins' }, { import = 'mr-rc.plugins.lsp' }},
+  {
+    defaults = { lazy = true },
+    -- install = { colorscheme = { 'tokyonight-night' } },
+    checker = {
+      enabled = true,
+      notify = false,
+    },
+    change_detection = { notify = false },
+  }
+)

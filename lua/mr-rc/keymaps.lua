@@ -6,12 +6,16 @@ vim.g.maplocalleader = " "
 -- explorer
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>")
 
+-- buffers navigation
+vim.keymap.set("n", "<c-l>", ":bnext<cr>")
+vim.keymap.set("n", "<c-h>", ":bprevious<cr>")
+
 -- speed up vertical scroll
 vim.keymap.set("n", "<c-e>", "2<c-e>")
 vim.keymap.set("n", "<c-y>", "2<c-y>")
 -- horizontal scroll
-vim.keymap.set("n", "<c-l>", "20zl")
-vim.keymap.set("n", "<c-h>", "20zh")
+-- vim.keymap.set("n", "<c-l>", "20zl")
+-- vim.keymap.set("n", "<c-h>", "20zh")
 
 -- split windows
 vim.keymap.set("n", "<leader>sj", ":split<cr>")
@@ -43,10 +47,11 @@ vim.keymap.set("v", "p", '"_dP')
 
 -- yank to outter world register
 vim.keymap.set("n", "<leader>y", '"+yy')
-vim.keymap.set("n", "<leader>p", '"+P')
+vim.keymap.set("n", "<leader>p", '"+p')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>p", '"+p')
 
 -- telescope
-vim.keymap.set("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
-vim.keymap.set("n", "<leader>lg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>")
+vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")

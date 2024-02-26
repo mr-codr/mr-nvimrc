@@ -1,3 +1,4 @@
+vim.cmd("lang en_US")
 -- indentation
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
@@ -28,3 +29,4 @@ vim.opt.foldlevel = 1
 -- override specific filetype options
 -- markdown
 vim.g.markdown_folding = 1
+vim.opt.conceallevel = 1

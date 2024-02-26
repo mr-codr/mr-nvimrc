@@ -2,45 +2,18 @@ return {
   "hrsh7th/nvim-cmp", -- completion engine
   event = 'InsertEnter',
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp", -- completion with the LSP
+    'hrsh7th/cmp-path',
     "L3MON4D3/LuaSnip", -- Snippets engine
   },
   config = function ()
+    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip/loaders/from_vscode").lazy_load()
-
-    --   פּ ﯟ   some other good icons
-    local kind_icons = {
-      Text = "󰊄",
-      Method = "m",
-      Function = "󰊕",
-      Constructor = "",
-      Field = "",
-      Variable = "󰫧",
-      Class = "",
-      Interface = "",
-      Module = "",
-      Property = "",
-      Unit = "",
-      Value = "",
-      Enum = "",
-      Keyword = "󰌆",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = "󰉺",
-    }
-    -- find more here: https://www.nerdfonts.com/cheat-sheet
-
 
     local cmp = require('cmp');
     cmp.setup {
+      completion = {
+        completeopt = 'menu,menuone,preview,noselect',
+      },
       snippet = {
         expand = function(args)
           require('luasnip').lsp_expand(args.body)
@@ -57,15 +30,16 @@ return {
       }),
 
       formatting = {
-        fields = { "kind", "abbr" },
-        format = function(_, vim_item)
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          return vim_item
-        end
+        fields = { "abbr", "kind" },
+        -- format = function(_, vim_item)
+        --   vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+        --   return vim_item
+        -- end
       },
 
       sources = cmp.config.sources {
-        { name = "nvim_lsp" }
+        { name = "nvim_lsp" },
+        { name = 'path' },
       },
 
       window = {
