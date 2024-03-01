@@ -3,23 +3,26 @@ return {
 	tag = "0.1.5",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		"nvim-tree/nvim-web-devicons",
 	},
+	cmd = { "Telescope" },
 	keys = {
-		{
-			"<leader>ff",
-			"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-		},
+		{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
+		-- {
+		-- 	"<leader>ff",
+		-- 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
+		-- },
 		{ "<leader>fw", "<cmd>Telescope live_grep<cr>" },
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
 	},
 	config = function()
 		local actions = require("telescope.actions")
-		require("telescope").setup({
+		local telescope = require("telescope")
+		telescope.setup({
 			defaults = {
-
-				prompt_prefix = " ",
-				selection_caret = " ",
-				path_display = { "truncate" },
+				path_display = { truncate = 5 },
+				layout_strategy = "vertical",
 
 				mappings = {
 					i = {
@@ -86,15 +89,22 @@ return {
 					},
 				},
 			},
-			-- pickers = {
-			-- Default configuration for builtin pickers goes here:
-			-- picker_name = {
-			--   picker_config_key = value,
-			--   ...
-			-- }
-			-- Now the picker_config_key will be applied every time you call this
-			-- builtin picker
-			-- },
+			pickers = {
+				find_files = {
+					-- default find_command for rg: https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/builtin/__files.lua#L272
+					-- find_command = { "rg", "--files", "--color", "never" },
+					find_command = function(opts)
+						if 1 == vim.fn.executable("rg") then
+							-- searches also for hidden files, then excludes .git
+							return { "rg", "--files", "--color", "never", "--hidden", "--iglob", "!.git" }
+						else
+							return require("telescope.builtin").find_files(opts)
+						end
+					end,
+				},
+			},
 		})
+
+		telescope.load_extension("fzf")
 	end,
 }
