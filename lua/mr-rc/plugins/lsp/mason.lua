@@ -21,7 +21,9 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				-- nvim
 				"lua_ls",
+				-- web dev
 				"angularls",
 				"tsserver",
 				"emmet_ls",
@@ -34,11 +36,9 @@ return {
 
 		require("mason-tool-installer").setup({
 			ensure_installed = {
+				"stylua",
 				"prettierd",
 				-- "eslint_d",
-				"stylua",
-				"glow",
-				"mdslw",
 			},
 		})
 	end,

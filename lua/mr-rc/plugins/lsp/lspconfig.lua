@@ -15,6 +15,7 @@ return {
 			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 			vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+			vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
@@ -23,7 +24,6 @@ return {
 			-- vim.keymap.set("n", "gD", vim.lsp.buf.declararion, opts) -- this line breaks next keymaps
 			-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 			-- vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
-			-- vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 			-- vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 		end
 
@@ -84,6 +84,8 @@ return {
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			single_file_support = false,
+			-- root_dir = lspconfig.util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
 		})
 
 		lspconfig["lua_ls"].setup({
@@ -117,6 +119,12 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "html", "css", "scss" },
+		})
+
+		lspconfig["denols"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 		})
 	end,
 }

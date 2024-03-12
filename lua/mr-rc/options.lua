@@ -33,9 +33,6 @@ vim.opt.foldlevel = 10
 -- vim.opt.foldlevelstart = 99
 -- markdown
 vim.g.markdown_folding = 1
--- vim.opt.conceallevel = 1
--- vim.g.vim_markdown_conceal = 0
--- vim.g.vim_markdown_conceal_code_blocks = 0
 
 local augroup = vim.api.nvim_create_augroup("vimrc-incsearch-highlight", { clear = true })
 vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
@@ -59,6 +56,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	callback = function()
 		-- vim.opt_local.foldmethod = "syntax"
 		vim.opt.sidescrolloff = 0
-		vim.opt.textwidth = 100
+		vim.opt.textwidth = 90
+		vim.opt.tabstop = 2
+		vim.opt.shiftwidth = 2
 	end,
 })

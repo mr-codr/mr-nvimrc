@@ -52,6 +52,7 @@ vim.keymap.set("v", "p", '"_dP')
 -- yank to outter world register
 vim.keymap.set("n", "<leader>y", '"+yy')
 vim.keymap.set("n", "<leader>p", '"+p')
+vim.keymap.set("n", "<leader>P", '"+P')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>p", '"+p')
 

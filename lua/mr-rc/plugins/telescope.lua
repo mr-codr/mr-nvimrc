@@ -6,13 +6,10 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
 	},
-	cmd = { "Telescope" },
+	lazy = false,
+	-- cmd = { "Telescope" },
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
-		-- {
-		-- 	"<leader>ff",
-		-- 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>",
-		-- },
 		{ "<leader>fw", "<cmd>Telescope live_grep<cr>" },
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
 	},
