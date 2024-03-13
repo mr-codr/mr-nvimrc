@@ -9,13 +9,13 @@ return {
 		local conform = require("conform")
 		conform.setup({
 			formatters_by_ft = {
-				javascript = { { "prettierd", "prettier" } },
-				typescript = { { "prettierd", "prettier" } },
-				css = { { "prettierd", "prettier" } },
-				html = { { "prettierd", "prettier" } },
-				json = { { "prettierd", "prettier" } },
-				yaml = { { "prettierd", "prettier" } },
-				markdown = { "mdslw" },
+				javascript = { "prettierd" },
+				typescript = { "prettierd" },
+				css = { "prettierd" },
+				html = { "prettierd" },
+				json = { "prettierd" },
+				yaml = { "prettierd" },
+				markdown = { "prettierd" },
 				lua = { "stylua" },
 			},
 			format_on_save = {
@@ -24,11 +24,14 @@ return {
 				timeout_ms = 500,
 			},
 			formatters = {
-				mdslw = {
-					prepend_args = function()
-						return { "--max-width", "100", "--end-markers", "" }
-					end,
-				},
+				prettierd = { "--prose-wrap", "always", "--print-width", "90" },
+				-- prettier = {
+				-- 	prepend_args = { "--prose-wrap", "always", "--print-width", "100", "--tab-width", "4" },
+				-- prepend_args = function(self, ctx)
+				-- 	print(ctx.filetype)
+				-- 	return { "--print-width", "100" }
+				-- end,
+				-- },
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
