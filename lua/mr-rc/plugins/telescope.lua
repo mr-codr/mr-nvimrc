@@ -88,12 +88,19 @@ return {
 			},
 			pickers = {
 				find_files = {
-					-- default find_command for rg: https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/builtin/__files.lua#L272
-					-- find_command = { "rg", "--files", "--color", "never" },
+					-- default find_command for rg: { "rg", "--files", "--color", "never" },
+					-- source: https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/builtin/__files.lua#L272
 					find_command = function(opts)
 						if 1 == vim.fn.executable("rg") then
-							-- searches also for hidden files, then excludes .git
-							return { "rg", "--files", "--color", "never", "--hidden", "--iglob", "!.git" }
+							return {
+								"rg",
+								"--files",
+								"--color",
+								"never",
+								"--hidden", -- includes hidden files
+								"--iglob", -- filters with glob pattern
+								"!{.git,.obsidian}", -- excludes .git and .obsidian
+							}
 						else
 							return require("telescope.builtin").find_files(opts)
 						end
