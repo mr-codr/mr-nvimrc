@@ -10,25 +10,9 @@ return {
 				section_separators = "",
 			},
 			sections = {
-				-- these are to remove the defaults
-				lualine_a = {
-					-- {
-					--   'buffers',
-					--   max_length = vim.o.columns,
-					--   symbols = {
-					--     alternate_file = '',
-					--   }
-					-- },
-				},
-				lualine_b = {
-					-- {
-					--   'buffers',
-					--   max_length = vim.o.columns,
-					--   symbols = {
-					--     alternate_file = '',
-					--   }
-					-- },
-				},
+				lualine_a = { "branch" },
+				-- empty table to remove de defaults
+				lualine_b = {},
 				lualine_c = {
 					{
 						"buffers",
