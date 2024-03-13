@@ -12,15 +12,15 @@ return {
 
 		local on_attach = function(_, bufnr)
 			local opts = { buffer = bufnr, noremap = true, silent = true }
-			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-			vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+			vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "gr", vim.lsp.buf.rename, opts)
+			vim.keymap.set("n", "<leader>dh", vim.diagnostic.open_float, opts)
+			vim.keymap.set("n", "<leader>da", vim.lsp.buf.code_action, opts)
 			vim.keymap.set("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 			vim.keymap.set("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			-- vim.keymap.set("n", "gD", vim.lsp.buf.declararion, opts) -- this line breaks next keymaps
 			-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 			-- vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
