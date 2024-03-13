@@ -11,6 +11,10 @@ return {
 				name = "vault",
 				path = "C:/mr-vault",
 			},
+			{
+				name = "work",
+				path = "~/lud/vault",
+			},
 		},
 		mappings = {
 			["gd"] = {
