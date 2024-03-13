@@ -20,6 +20,11 @@ return {
 			defaults = {
 				path_display = { truncate = 5 },
 				layout_strategy = "vertical",
+				layout_config = {
+					vertical = {
+						preview_cutoff = 25,
+					},
+				},
 
 				mappings = {
 					i = {
