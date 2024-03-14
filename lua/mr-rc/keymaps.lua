@@ -56,11 +56,5 @@ vim.keymap.set("n", "<leader>P", '"+P')
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>p", '"+p')
 
--- telescope
--- vim.keymap.set(
--- 	"n",
--- 	"<leader>ff",
--- 	"<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>"
--- )
--- vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>")
--- vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+vim.keymap.set("n", "]g", "]c", { remap = true })
+vim.keymap.set("n", "[g", "[c", { remap = true })
