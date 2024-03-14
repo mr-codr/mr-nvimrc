@@ -34,9 +34,9 @@ vim.opt.foldlevel = 10
 -- markdown
 vim.g.markdown_folding = 1
 
-local augroup = vim.api.nvim_create_augroup("vimrc-incsearch-highlight", { clear = true })
+local searchHlAugroup = vim.api.nvim_create_augroup("SearchHlAuGroup", { clear = true })
 vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
-	group = augroup,
+	group = searchHlAugroup,
 	pattern = { "/,?" },
 	callback = function()
 		vim.opt.hlsearch = true
@@ -44,14 +44,16 @@ vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
 })
 
 vim.api.nvim_create_autocmd({ "CmdlineLeave" }, {
-	group = augroup,
+	group = searchHlAugroup,
 	pattern = { "/,?" },
 	callback = function()
 		vim.opt.hlsearch = false
 	end,
 })
 
+local markdownAugroup = vim.api.nvim_create_augroup("MarkdownAugroup", { clear = true })
 vim.api.nvim_create_autocmd({ "FileType" }, {
+	group = markdownAugroup,
 	pattern = { "markdown" },
 	callback = function()
 		-- vim.opt_local.foldmethod = "syntax"
