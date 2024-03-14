@@ -8,7 +8,10 @@ return {
 		{ "<leader>gr", "<CMD>Gread<CR>" },
 		{ "<leader>gs", "<CMD>Git<CR>" },
 		{ "<leader>gc", "<CMD>Git commit<CR>" },
-		{ "<leader>gg", "<CMD>Flog -all<CR>" },
+		{ "<leader>gg", "<CMD>Flog<CR>" },
 		{ "<leader>gb", "<CMD>Telescope git_branches<CR>" },
 	},
+	config = function()
+		vim.g.flog_permanent_default_opts = { all = true, format = "%d %s" }
+	end,
 }
