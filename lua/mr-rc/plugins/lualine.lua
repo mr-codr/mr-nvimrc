@@ -10,21 +10,24 @@ return {
 				section_separators = "",
 			},
 			sections = {
-				lualine_a = { "branch" },
 				-- empty table to remove de defaults
-				lualine_b = {},
-				lualine_c = {
+				lualine_a = {},
+				lualine_b = {
 					{
-						"buffers",
-						max_length = vim.o.columns,
+						"filename",
+						newfile_status = true,
 						symbols = {
-							alternate_file = "",
+							modified = "●",
+							readonly = "(readonly)",
+							unnamed = "[No Name]",
+							newfile = "[New]",
 						},
 					},
 				},
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {},
+				lualine_z = { "branch" },
 			},
 			inactive_sections = {
 				lualine_a = {},
