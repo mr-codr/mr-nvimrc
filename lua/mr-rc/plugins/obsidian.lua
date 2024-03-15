@@ -9,7 +9,7 @@ return {
 		workspaces = {
 			{
 				name = "vault",
-				path = "C:/mr-vault",
+				path = "~/dev/mr-vault",
 			},
 			{
 				name = "work",
