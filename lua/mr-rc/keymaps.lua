@@ -6,10 +6,6 @@ vim.g.maplocalleader = " "
 -- explorer
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
 
--- buffers navigation
-vim.keymap.set("n", "<c-l>", "<cmd>bnext<cr>")
-vim.keymap.set("n", "<c-h>", "<cmd>bprevious<cr>")
-
 -- keeps search in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
@@ -18,8 +14,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<c-e>", "2<c-e>")
 vim.keymap.set("n", "<c-y>", "2<c-y>")
 -- horizontal scroll
--- vim.keymap.set("n", "<c-l>", "20zl")
--- vim.keymap.set("n", "<c-h>", "20zh")
+vim.keymap.set("n", "<c-l>", "20zl")
+vim.keymap.set("n", "<c-h>", "20zh")
 
 -- split windows
 vim.keymap.set("n", "<leader>sj", "<cmd>split<cr>")
