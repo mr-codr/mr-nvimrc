@@ -11,8 +11,7 @@ return {
 			},
 			sections = {
 				-- empty table to remove de defaults
-				lualine_a = {},
-				lualine_b = {
+				lualine_a = {
 					{
 						"filename",
 						newfile_status = true,
@@ -24,10 +23,11 @@ return {
 						},
 					},
 				},
+				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
-				lualine_y = {},
-				lualine_z = { "branch" },
+				lualine_y = { "branch" },
+				lualine_z = {},
 			},
 			inactive_sections = {
 				lualine_a = {},
