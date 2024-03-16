@@ -28,7 +28,6 @@ return {
 				"tsserver",
 				"emmet_ls",
 				"cssls",
-				"tailwindcss",
 				"eslint",
 			},
 			automatic_installation = true,
