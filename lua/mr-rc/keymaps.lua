@@ -3,9 +3,6 @@ vim.keymap.set("", "<space>", "")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- explorer
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>")
-
 -- keeps search in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
