@@ -105,6 +105,5 @@ return {
 		})
 
 		telescope.load_extension("fzf")
-		require("mr-rc.extension")
 	end,
 }
