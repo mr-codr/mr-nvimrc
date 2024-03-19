@@ -7,7 +7,6 @@ return {
 		{ "<leader>gu", "<CMD>Git restore --staged %<CR>" },
 		{ "<leader>gr", "<CMD>Gread<CR>" },
 		{ "<leader>gs", "<CMD>Git<CR>" },
-		{ "<leader>gc", "<CMD>Git commit<CR>" },
 		{ "<leader>gg", "<CMD>Flog<CR>" },
 		{ "<leader>gb", "<CMD>Telescope git_branches<CR>" },
 	},
