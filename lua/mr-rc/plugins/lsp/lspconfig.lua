@@ -62,6 +62,18 @@ return {
 		lspconfig["eslint"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"javascript.jsx",
+				"typescript",
+				"typescriptreact",
+				"typescript.tsx",
+				"vue",
+				"svelte",
+				"astro",
+				"html", -- angular
+			},
 			-- on_attach = function(client, bufnr)
 			-- 	vim.api.nvim_create_autocmd("BufWritePre", {
 			-- 		buffer = bufnr,
