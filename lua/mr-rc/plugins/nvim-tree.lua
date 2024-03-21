@@ -27,6 +27,7 @@ return {
 		require("nvim-tree").setup({
 			on_attach = my_on_attach,
 			disable_netrw = true,
+			sync_root_with_cwd = true,
 			view = {
 				float = {
 					enable = true,
