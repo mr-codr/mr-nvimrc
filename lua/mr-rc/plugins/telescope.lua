@@ -13,8 +13,8 @@ return {
 		{ "<leader>fw", "<cmd>Telescope live_grep<cr>" },
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
 		{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
-		{ "<leader>wc", "<cmd>Telescope wt_switch<cr>" },
-		{ "<leader>ws", "<cmd>Telescope wt_create<cr>" },
+		{ "<leader>wc", "<cmd>Telescope wt_create<cr>" },
+		{ "<leader>ws", "<cmd>Telescope wt_switch<cr>" },
 	},
 	config = function()
 		local actions = require("telescope.actions")
