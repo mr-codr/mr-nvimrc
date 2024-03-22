@@ -1,6 +1,5 @@
 require("mr-rc.keymaps")
 require("mr-rc.options")
-require("mr-rc.features")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
