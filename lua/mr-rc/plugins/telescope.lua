@@ -5,12 +5,16 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-tree/nvim-web-devicons",
+		"mr-worktrees",
 	},
 	lazy = false,
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
 		{ "<leader>fw", "<cmd>Telescope live_grep<cr>" },
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>" },
+		{ "<leader>wc", "<cmd>Telescope wt_switch<cr>" },
+		{ "<leader>ws", "<cmd>Telescope wt_create<cr>" },
 	},
 	config = function()
 		local actions = require("telescope.actions")
@@ -28,24 +32,11 @@ return {
 				mappings = {
 					i = {
 						["<esc>"] = actions.close,
-						["<C-n>"] = actions.cycle_history_next,
-						["<C-p>"] = actions.cycle_history_prev,
-
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
-
-						["<C-c>"] = actions.close,
-
-						["<CR>"] = actions.select_default,
+						["<C-n>"] = actions.cycle_history_next,
+						["<C-p>"] = actions.cycle_history_prev,
 						["<C-h>"] = actions.select_horizontal,
-						["<C-v>"] = actions.select_vertical,
-
-						["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-						["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-						["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-						["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-						["<C-l>"] = actions.complete_tag,
-						["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
 					},
 
 					n = {
@@ -105,5 +96,7 @@ return {
 		})
 
 		telescope.load_extension("fzf")
+		telescope.load_extension("wt_create")
+		telescope.load_extension("wt_switch")
 	end,
 }

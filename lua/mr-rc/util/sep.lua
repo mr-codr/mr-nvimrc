@@ -1,6 +1,9 @@
-local configPath = vim.fn.stdpath("config")
+local loaded_plenary, Path = pcall(require, "plenary.path")
+if loaded_plenary then
+	return Path.path.sep
+end
 
-if string.sub(configPath, 3, 3) == "\\" then
+if package.config:sub(1, 1) == "\\" then
 	return "\\"
 else
 	return "/"

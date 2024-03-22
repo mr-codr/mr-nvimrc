@@ -1,0 +1,38 @@
+local normalizePathSep = require("mr-rc.util.normalize_sep").normalize
+
+local M = {}
+
+M.isPath = function(value)
+	local index = string.find(value, "worktree", 1, true)
+	return index == 1
+end
+
+M.getPath = function(value)
+	value = normalizePathSep(value)
+	return string.sub(value, 10)
+end
+
+M.isHash = function(value)
+	local index = string.find(value, "HEAD", 1, true)
+	return index == 1
+end
+
+M.getHash = function(value)
+	return string.sub(value, 6)
+end
+
+M.isBranch = function(value)
+	local index = string.find(value, "branch", 1, true)
+	return index == 1
+end
+
+M.getBranch = function(value)
+	return string.sub(value, 19)
+end
+
+M.format = function(worktree)
+	local shotHash = string.sub(worktree.hash, 1, 8)
+	return worktree.branch .. " [" .. shotHash .. "]"
+end
+
+return M
