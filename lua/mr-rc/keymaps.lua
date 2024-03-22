@@ -6,6 +6,8 @@ vim.g.maplocalleader = " "
 -- keeps search in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "*", "*zz")
+vim.keymap.set("n", "#", "#zz")
 
 -- speed up vertical scroll
 vim.keymap.set("n", "<c-e>", "2<c-e>")
