@@ -15,7 +15,7 @@ return {
 			vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 			vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 			vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-			vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
+			vim.keymap.set("n", "H", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "gn", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>dh", vim.diagnostic.open_float, opts)
 			vim.keymap.set("n", "<leader>da", vim.lsp.buf.code_action, opts)
