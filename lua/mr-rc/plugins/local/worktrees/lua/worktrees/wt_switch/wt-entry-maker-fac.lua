@@ -20,7 +20,7 @@ return function(base_dir)
 	---     branch = 'master',
 	---   },
 	---   display = 'master [5eafc12]',
-	---   ordinal = 'master'
+	---   ordinal = 'my_project'
 	---  },
 	--- ```
 	---@param entry table
@@ -41,7 +41,7 @@ return function(base_dir)
 		return {
 			value = worktree,
 			display = u.format(worktree),
-			ordinal = worktree.branch,
+			ordinal = worktree.path,
 		}
 	end
 end
