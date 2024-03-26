@@ -1,5 +1,5 @@
-local normalizeSep = require("mr-rc.util.normalize_sep").normalize
-local configPath = vim.fn.stdpath("config")
-local localPluginsPath = normalizeSep(configPath .. "/lua/mr-rc/plugins/local/")
+local path = require("mr-rc.util.path")
+local config_path = vim.fn.stdpath("config")
+local local_plugins_path = path.normalize_sep(config_path .. "/lua/mr-rc/plugins/local/")
 
-return localPluginsPath
+return local_plugins_path

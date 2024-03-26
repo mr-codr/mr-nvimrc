@@ -16,7 +16,7 @@
 ---```
 ---if the command errors, returns `nil`
 ---@return table|nil
-local getWtEntries = function()
+return function()
 	local command = "git worktree list --porcelain"
 	local handle = io.popen(command)
 
@@ -42,5 +42,3 @@ local getWtEntries = function()
 	end
 	return worktrees
 end
-
-return getWtEntries
