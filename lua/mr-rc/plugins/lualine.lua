@@ -8,6 +8,9 @@ return {
 				icons_enabled = true,
 				component_separators = "",
 				section_separators = "",
+				disabled_filetypes = {
+					statusline = { "NvimTree" },
+				},
 			},
 			sections = {
 				-- empty table to remove de defaults
@@ -30,7 +33,18 @@ return {
 				lualine_z = {},
 			},
 			inactive_sections = {
-				lualine_a = {},
+				lualine_a = {
+					{
+						"filename",
+						newfile_status = true,
+						symbols = {
+							modified = "●",
+							readonly = "(readonly)",
+							unnamed = "[No Name]",
+							newfile = "[New]",
+						},
+					},
+				},
 				lualine_b = {},
 				lualine_c = {},
 				lualine_x = {},
